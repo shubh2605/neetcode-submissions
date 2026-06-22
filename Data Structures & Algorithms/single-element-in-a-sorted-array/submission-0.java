@@ -1,0 +1,22 @@
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+        int number=0,prev=0;
+        for(int i=0;i<nums.length;i++){
+            int count=0;
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]==nums[j]){
+                    count++;
+                }
+                if(count==1){
+                    prev=nums[i];
+                    break;
+                }
+            }
+            if(count == 0 && nums[i]!=prev){
+               number=nums[i];
+               break;
+            }
+        }
+        return number;
+    }
+}
